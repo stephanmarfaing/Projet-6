@@ -1,0 +1,563 @@
+/* ============================================================
+   JustStreamIt - style.css
+   Fait d'après les maquettes (Desktop / Tablet / Mobile).
+   Mobile d'abord, puis tablette (640px) et ordinateur (1000px).
+   Ces deux largeurs sont les mêmes que dans script.js
+   (2 films en mobile, 4 en tablette, 6 en ordinateur)
+   ============================================================ */
+
+
+/* ---------- Réglages de base ---------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  background-color: #ffffff;   /* fond blanc */
+  color: #000000;
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Marges sur les côtés : 12% en mobile, 10% en tablette et ordinateur */
+main {
+  padding: 0 12%;
+}
+
+section {
+  margin: 24px 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+/* Mobile : les titres de sections sont centrés */
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+
+/* ---------- Boutons rouges ---------- */
+
+button {
+  background-color: #e60000;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a80000;
+}
+
+
+/* ---------- En-tête ---------- */
+
+/* Mobile : le logo est seul, au centre */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 12% 0 12%;
+  padding: 12px 24px;
+  background-color: #607a7e;
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+header img {
+  height: 85px;
+}
+
+/* Le titre est caché en mobile */
+header p {
+  display: none;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+
+/* ---------- Meilleur film ---------- */
+
+/* Mobile : l'affiche en haut, le texte en dessous */
+.best-movie-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px;
+  border: 5px solid #000000;
+}
+
+.best-movie-box figure {
+  width: 100%;
+}
+
+.best-movie-box figure img {
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid #333333;
+}
+
+.best-movie-box > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#best-movie-summary {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Mobile : le bouton "Détails" est au centre */
+#best-movie-details-btn {
+  align-self: center;
+  margin-top: auto;
+  padding: 6px 32px;
+  border-radius: 22px;
+  font-size: 0.9rem;
+}
+
+
+/* ---------- Grilles de films ---------- */
+
+/* Mobile : 1 colonne (2 films visibles) */
+ul[id$="-grid"] {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.movie-card {
+  position: relative;
+}
+
+/* Affiche de 252 x 247 */
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 252 / 247;
+  object-fit: cover;
+}
+
+/* Bandeau gris transparent sur l'affiche (102px pour une affiche de 247px) :
+   le titre en haut à gauche, le bouton "Détails" en bas à droite */
+.movie-card-overlay {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  height: 41%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: rgb(7 7 7 / 0.5);
+  color: #ffffff;
+}
+
+.movie-card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.movie-card-overlay button {
+  align-self: flex-end;
+  padding: 3px 20px;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: normal;
+  background-color: #2b2b2b;
+}
+
+.movie-card-overlay button:hover {
+  background-color: #000000;
+}
+
+/* Bouton "Voir plus" / "Voir moins" : petite pastille rouge au centre */
+section > button[data-target] {
+  display: block;
+  width: 200px;
+  margin: 20px auto 0 auto;
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+
+
+/* ---------- Choix de la catégorie "Autres" ---------- */
+
+/* Mobile : le texte "Autres:" au-dessus, la liste en dessous, au centre */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+select {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  margin: 0 auto 28px auto;
+  padding: 8px 40px 8px 12px;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  /* flèche noire à droite de la liste */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12'%3E%3Cpolygon points='0,0 16,0 8,12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+
+/* Un peu d'espace entre le choix de la catégorie et les films */
+#other-category-grid {
+  margin-top: 24px;
+}
+
+
+/* ---------- Pied de page ---------- */
+
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #222222;
+}
+
+
+/* ---------- Modale ---------- */
+
+#movie-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+/* Quand l'attribut hidden est présent, on cache la modale */
+#movie-modal-overlay[hidden] {
+  display: none;
+}
+
+/* Mobile et tablette : les infos en haut, l'affiche en bas */
+#movie-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 506px;          /* largeur de la maquette (tablette et mobile) */
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 6px solid #000000;
+}
+
+#movie-modal h2 {
+  margin: 0;
+  padding-right: 50px;
+  font-size: 1.8rem;
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* Les 4 lignes d'infos en gras */
+.modal-info {
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+/* "Réalisé par:" et "Avec:" */
+.modal-label {
+  font-weight: normal;
+}
+
+#movie-modal p {
+  font-size: 0.95rem;
+}
+
+#modal-summary {
+  font-weight: 300;
+}
+
+/* Mobile et tablette : l'affiche (order 5) est avant "Avec:" (order 6) */
+#movie-modal figure {
+  order: 5;
+  width: 85%;
+  margin: 10px auto 0 auto;
+}
+
+#movie-modal figure img {
+  width: 100%;
+}
+
+#movie-modal .modal-avec {
+  order: 6;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+#movie-modal .modal-avec .modal-label {
+  font-weight: bold;
+}
+
+/* Croix rouge pour fermer (mobile et tablette) */
+#modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 0;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #e60000;
+  background: none;
+}
+
+#modal-close-btn:hover {
+  background: none;
+  color: #a80000;
+}
+
+/* Bouton "Fermer" du bas : caché en mobile et tablette (on a la croix) */
+#modal-close-btn-bottom {
+  display: none;
+}
+
+
+/* ============================================================
+   TABLETTE : à partir de 640px (4 films visibles)
+   ============================================================ */
+
+@media (min-width: 640px) {
+
+  main {
+    padding: 0 10%;
+  }
+
+  header {
+    justify-content: flex-start;
+    margin: 20px 10% 0 10%;
+  }
+
+  header img {
+    height: 90px;
+  }
+
+  header p {
+    display: block;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Les titres de sections sont alignés à gauche */
+  h2 {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  /* Meilleur film : affiche à gauche, texte à droite */
+  .best-movie-box {
+    flex-direction: row;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .best-movie-box figure {
+    flex-shrink: 0;
+    width: 170px;
+  }
+
+  .best-movie-box figure img {
+    aspect-ratio: auto;
+  }
+
+  #best-movie-summary {
+    font-size: 1.1rem;
+  }
+
+  #best-movie-details-btn {
+    align-self: flex-end;
+    padding: 8px 36px;
+    font-size: 1rem;
+  }
+
+  /* 2 colonnes x 2 lignes = 4 films */
+  ul[id$="-grid"] {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* "Autres:" et la liste sur la même ligne */
+  label {
+    display: inline-block;
+    margin: 0 16px 0 0;
+    vertical-align: middle;
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  select {
+    display: inline-block;
+    width: 400px;
+    margin: 0;
+    padding: 12px 50px 12px 16px;
+    vertical-align: middle;
+    font-size: 1.5rem;
+  }
+}
+
+
+/* ============================================================
+   ORDINATEUR : à partir de 1000px (6 films visibles)
+   ============================================================ */
+
+@media (min-width: 1000px) {
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2.75rem;
+  }
+
+  .best-movie-box {
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .best-movie-box figure {
+    width: 224px;
+  }
+
+  #best-movie-summary {
+    font-size: 1.4rem;
+  }
+
+  #best-movie-details-btn {
+    padding: 16px 48px;
+    border-radius: 28px;
+    font-size: 1.3rem;
+  }
+
+  /* 3 colonnes x 2 lignes = 6 films (cartes de 252px de large à 1066px d'écran) */
+  ul[id$="-grid"] {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 42px;
+  }
+
+  label {
+    font-size: 2.5rem;
+  }
+
+  select {
+    font-size: 1.6rem;
+  }
+
+  /* Modale : l'affiche en haut à droite, le texte à gauche,
+     le bouton "Fermer" rouge au centre en bas */
+  #movie-modal {
+    display: block;
+    max-width: 778px;        /* largeur de la maquette (ordinateur) */
+    padding: 24px 28px;
+  }
+
+  #movie-modal h2 {
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+  }
+
+  .modal-info {
+    font-size: 1.4rem;
+  }
+
+  #movie-modal p {
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+  }
+
+  #movie-modal figure {
+    float: right;
+    width: 220px;
+    margin: 0 0 12px 24px;
+  }
+
+  #modal-summary {
+    clear: both;
+    font-size: 1.15rem;
+  }
+
+  #movie-modal .modal-avec {
+    font-size: 1rem;
+  }
+
+  #modal-close-btn {
+    display: none;
+  }
+
+  /* Bouton "Fermer" : 214 x 36, coins arrondis à 25px */
+  #modal-close-btn-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 214px;
+    height: 36px;
+    margin: 20px auto 0 auto;
+    padding: 2px 4px;
+    border-radius: 25px;
+  }
+}

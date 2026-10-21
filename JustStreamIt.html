@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustStreamIt — Trouvez votre prochain film</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== EN-TÊTE ===================== -->
+  <header>
+      <img src="JustStreamIt.png" alt="Logo JustStreamIt" title="Page d'accueil">
+
+    <p>Vidéos à la demande</p>
+  </header>
+
+  <main>
+
+    <!-- ===================== MEILLEUR FILM ===================== -->
+    <section id="meilleur-film">
+      <h2>Meilleur film</h2>
+      <div class="best-movie-box">
+        <figure>
+          <img id="best-movie-image" src="" alt="">
+        </figure>
+        <div>
+          <h1 id="best-movie-title">Titre du meilleur film</h1>
+          <p id="best-movie-summary">Résumé du film.</p>
+          <button type="button" id="best-movie-details-btn" data-movie-id="">Détails</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FILMS LES MIEUX NOTÉS ===================== -->
+    <section id="mieux-notes">
+      <h2>Films les mieux notés</h2>
+      <ul id="top-rated-grid">
+        <li class="movie-card" data-movie-id="">
+          <img src="" alt="">
+          <p class="movie-card-title">Titre</p>
+          <p class="movie-card-rating">Note</p>
+        </li>
+        <!-- 5 autres <li class="movie-card"> identiques -->
+      </ul>
+      <button type="button" data-target="top-rated-grid">Voir plus</button>
+    </section>
+
+    <!-- ===================== CATÉGORIE 1 ===================== -->
+    <section id="categorie-1">
+      <h2 data-category-name="Mystery">Mystery</h2>
+      <ul id="category-1-grid" data-category="Mystery">
+        <li class="movie-card" data-movie-id="">
+          <img src="" alt="">
+          <p class="movie-card-title">Titre</p>
+          <p class="movie-card-rating">Note</p>
+        </li>
+        <!-- 5 autres <li class="movie-card"> identiques -->
+      </ul>
+      <button type="button" data-target="category-1-grid">Voir plus</button>
+    </section>
+
+    <!-- ===================== CATÉGORIE 2 ===================== -->
+    <section id="categorie-2">
+      <h2 data-category-name="Crime">Crime</h2>
+      <ul id="category-2-grid" data-category="Crime">
+        <li class="movie-card" data-movie-id="">
+          <img src="" alt="">
+          <p class="movie-card-title">Titre</p>
+          <p class="movie-card-rating">Note</p>
+        </li>
+        <!-- 5 autres <li class="movie-card"> identiques -->
+      </ul>
+      <button type="button" data-target="category-2-grid">Voir plus</button>
+    </section>
+
+    <!-- ===================== AUTRES (catégorie au choix) ===================== -->
+    <section id="autres">
+      <label for="category-select">Autres:</label>
+      <select id="category-select" name="category-select">
+        <option value="">Choisir une catégorie…</option>
+        <!-- <option> générées à partir de la liste des catégories -->
+      </select>
+      <ul id="other-category-grid" data-category="">
+        <!-- <li class="movie-card"> générées après sélection -->
+      </ul>
+    </section>
+
+  </main>
+
+
+  <!-- ===================== MODALE DÉTAILS DU FILM ===================== -->
+  <div id="movie-modal-overlay" hidden>
+    <div id="movie-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" id="modal-close-btn" aria-label="Fermer la fenêtre">&times;</button>
+      <figure>
+        <img id="modal-image" src="" alt="">
+      </figure>
+      <h2 id="modal-title">Titre du film</h2>
+      <p class="modal-info" id="modal-line-1"></p>
+      <p class="modal-info" id="modal-line-2"></p>
+      <p class="modal-info" id="modal-line-3"></p>
+      <p class="modal-info" id="modal-line-4"></p>
+      <p><span class="modal-label">Réalisé par:</span><br><span id="modal-director"></span></p>
+      <p id="modal-summary"></p>
+      <p class="modal-avec"><span class="modal-label">Avec:</span><br><span id="modal-actors"></span></p>
+      <button type="button" id="modal-close-btn-bottom">Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
